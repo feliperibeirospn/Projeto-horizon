@@ -1,0 +1,36 @@
+<template>
+    <lightning-card title="Painel do Coordenador - Ocupação das Turmas" icon-name="custom:custom85">
+        <div class="slds-m-around_medium">
+            <template if:true={turmas}>
+                <div class="slds-grid slds-wrap slds-gutters">
+                    <template for:each={turmas} for:item="turma">
+                        <div key={turma.id} class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-m-bottom_medium">
+                            <div class="slds-box slds-theme_default slds-box_small">
+                                <div class="slds-grid slds-grid_align-spread slds-m-bottom_x-small">
+                                    <span class="slds-text-heading_small slds-truncate"><strong>{turma.nome}</strong></span>
+                                    <span class="slds-badge slds-theme_success">{turma.status}</span>
+                                </div>
+                                
+                                <p class="slds-text-body_regular slds-m-bottom_x-small">
+                                    Matriculados: <strong>{turma.matriculados} / {turma.capacidade}</strong>
+                                </p>
+
+                                <!-- Barra de Progresso do Lightning Web Components -->
+                                <lightning-progress-bar value={turma.percentual} size="large" variant="circular"></lightning-progress-bar>
+                                
+                                <div class="slds-text-align_right slds-m-top_x-small slds-text-color_weak">
+                                    {turma.percentual}% ocupado
+                                </div>
+                            </div>
+                        </div>
+                    </template>
+                </div>
+            </template>
+
+            <!-- Loading Spinner -->
+            <template if:false={turmas}>
+                <lightning-spinner alt-text="Carregando turmas..."></lightning-spinner>
+            </template>
+        </div>
+    </lightning-card>
+</template>
