@@ -6,19 +6,13 @@
                     <template for:each={turmas} for:item="turma">
                         <div key={turma.id} class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-m-bottom_medium">
                             <div class="slds-box slds-theme_default slds-box_small">
-                                
-                                <!-- Cabeçalho do Card: Nome, Código e Status -->
                                 <div class="slds-grid slds-grid_align-spread slds-m-bottom_x-small">
-                                    <div>
-                                        <!-- Exibe Nome do Curso -->
-                                        <div class="slds-text-heading_small slds-truncate">
-                                            <strong>{turma.nomeCurso}</strong>
-                                        </div>
-                                        <!-- Exibe Código da Turma abaixo -->
-                                        <div class="slds-text-body_small slds-text-color_weak">
-                                            Código: {turma.codigo}
-                                        </div>
-                                    </div>
+                                    
+                                    <!-- Título Exibindo CÓDIGO + NOME -->
+                                    <span class="slds-text-heading_small slds-truncate">
+                                        <strong>{turma.tituloExibicao}</strong>
+                                    </span>
+
                                     <span class="slds-badge slds-theme_success">{turma.status}</span>
                                 </div>
                                 
